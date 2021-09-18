@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="check()">
+<script>
+    let arr='tooi la vi xinh dep =)) hihi'
+    function check(){
+        let input=prompt('Input a character: ')
+        if (arr.includes(input)){
+            let count=0
+            for(let i=0;i<arr.length;i++){
+                if(input===arr[i]){count++}
+            }
+            alert('Letter '+ input + ' appear '+ count + ' time(s)')
+        }else{
+            alert('letter '+input+ 'doesnt appear in the string')
+        }
+
+
+    }
+
+</script>
+</body>
+</html>

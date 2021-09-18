@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="starAndConstellation()">
+<script>
+  let stars=['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe','Regulus']
+  let constellation=['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major','Leo']
+  function starAndConstellation(){
+      let input=prompt('Input a star: ')
+      if (stars.includes(input)){
+          alert(input + 'is located in the constellation '+ constellation[stars.indexOf(input)])
+      }else{
+          alert('We cant find that star.')
+      }
+  }
+
+</script>
+</body>
+</html>

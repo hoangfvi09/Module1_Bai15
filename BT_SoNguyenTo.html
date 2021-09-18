@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function ktnt(n, i) {
+        if (n === i) return true
+        if (n % i === 0) return false
+        return ktnt(n, i - 1)
+    }
+
+    ktnt(17, 2)
+
+</script>
+</body>
+</html>

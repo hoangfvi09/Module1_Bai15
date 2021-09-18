@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="naturalNum()">
+<script>
+    function naturalNum(){
+        let number=+prompt('input a number: ')
+        if((number>0)&&(number-Math.floor(number))===0){
+            alert( number+ ' is an integer')
+        }else{
+            alert( number+ ' isnt an integer')
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="checkNumber()">
+<script>
+    let numberArr='0123456789'
+    function checkNumber(){
+        let input=prompt('Input a character:')
+        if(numberArr.includes(input)){
+            alert(input+' is a number')
+        }else{
+            alert(input+' isnt a number')
+        }
+    }
+</script>
+</body>
+</html>
