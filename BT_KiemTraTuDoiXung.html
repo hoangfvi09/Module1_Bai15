@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array1 = 'h'
+    let array2 = 'hoangviivgnaoh'
+    let array3 = 'hoangvihihuh'
+    function symmetryCheck(arr) {
+        if (arr.length === 0)  {
+            return true
+        }
+        if (arr[0] !== arr[arr.length - 1]) {
+            return false
+        }
+        return symmetryCheck(arr.slice(1, (arr.length - 1)))
+    }
+
+    console.log(symmetryCheck(array1))
+    console.log(symmetryCheck(array2))
+    console.log(symmetryCheck(array3))
+</script>
+
+</body>
+</html>

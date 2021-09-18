@@ -10,10 +10,10 @@
     function ktnt(n, i) {
         if (n === i) return true
         if (n % i === 0) return false
-        return ktnt(n, i - 1)
+        return ktnt(n, i + 1)
     }
 
-    ktnt(17, 2)
+    console.log(ktnt(15, 2))
 
 </script>
 </body>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Caro Game Simple</h3>
+<p id="carogame"></p>
+<p>Chon cot:</p>
+<input type="text" id="colno">
+<p>Chon hang:</p>
+<input type="text" id="rowno">
+<p> x hay o</p>
+<button id="x" onclick="changeValue(this.id)"> Chon X</button>
+<button id="o" onclick="changeValue(this.id)"> Chon O</button>
+<script>
+    let b = document.getElementById("carogame");
+    let board = [];
+    let data = "";
+    for (let i = 0; i < 5; i++) {
+        board[i] = ['.', '.', '.', '.', '.'];
+    }
+    for (let i = 0; i < 5; i++) {
+        data += "<br/>";
+        for (let j = 0; j < 5; j++) {
+            data += board[i][j] + "&nbsp;&nbsp;";
+        }
+    }
+
+    function changeValue(id) {
+        let positionX = document.getElementById("rowno").value;
+        let positionY = document.getElementById("colno").value;
+        data = "";
+        board[positionX - 1][positionY - 1] = id;
+        for (let i = 0; i < 5; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 5; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        data += "<br/><br/>"
+        b.innerHTML = "<hr/>" + data;
+        check()
+    }
+
+    data += "<br/><br/>"
+    b.innerHTML = data;
+
+    // kiem tra thang game
+    function check() {
+
+
+        for (let m = 0; m < 5; m++) {
+            for (let n = 0; n < 5; n++) {
+                let rowWin = (board[m][n] === board[m][n + 1]) && (board[m][n] === board[m][n - 1])
+                    && ((board[m][n] === "x") || (board[m][n] === "o"))
+                let colWin = (board[m][n] === board[m + 1][n]) && (board[m][n] === board[m - 1][n])
+                    && ((board[m][n] === "x") || (board[m][n] === "o"))
+                let downWin = (board[m][n] === board[m + 1][n + 1]) && (board[m - 1][n - 1] === board[m][n])
+                    && ((board[m][n] === "x") || (board[m][n] === "o"))
+                let upWin = (board[m][n] === board[m - 1][n + 1]) && (board[m + 1][n - 1] === board[m][n])
+                    && ((board[m][n] === "x") || (board[m][n] === "o"))
+                let win = (rowWin || colWin) || (downWin || upWin)
+                if (win) {
+                    alert(board[m][n] + ' thang')
+                }
+            }
+        }
+
+
+
+    }
+</script>
+</body>
+</html>

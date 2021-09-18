@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple caro</title>
+</head>
+<body>
+<h1>Simple Caro</h1>
+<p id="game"></p>
+<hr>
+Dòng: <br>
+<input style="width: 100px" type="text" id="colum" placeholder="Nhập số dòng "> <br> <br>
+Cột : <br>
+<input style="width: 100px" type="text" id="row" placeholder="Nhập số cột"> <br> <br>
+<button value="x" onclick="tick(this.value)"> Đánh X </button>
+<button value="o" onclick="tick(this.value)"> Đánh O </button>
+<script>
+    let game = document.getElementById("game");
+    let print = "";
+    let board = []
+    for (let i = 0; i < 5 ; i++) {
+        board[i] = ["*","*","*","*","*"];
+    }
+    for (let i = 0; i < 5; i++) {
+        print += "<br>"
+        for (let j = 0; j < 5; j++) {
+            print += board[i][j] + "&nbsp;&nbsp;"
+        }
+    }
+    game.innerHTML = print ;
+    function tick(symbol){
+        let x = document.getElementById("colum").value;
+        let y = document.getElementById("row").value;
+        board[x-1][y-1] = symbol
+        print = ""
+        for (let i = 0; i < 5; i++) {
+            print += "<br>"
+            for (let j = 0; j < 5; j++) {
+                print += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;"
+            }
+        }
+        game.innerHTML = print ;
+        checkWin()
+    }
+    function checkWin() {
+        for (let i = 0; i < 5; i++){
+            for (let j = 0; j < 5; j++){
+                if (board[i][j] == board[i + 1][j + 1] && board[i + 1][j + 1] == board[i + 2][j + 2] ){
+                    if (board[i][j] == "x"){
+                        alert("X win")
+                    }
+                    if (board[i][j] == "o") {
+                        alert("O win")
+                    }
+                } else if (board[i][j] == board[i][j + 1] && board[i][j + 1] == board[i][j + 2]){
+                    if (board[i][j] == "x"){
+                        alert("X win")
+                    }
+                    if (board[i][j] == "o") {
+                        alert("O win")
+                    }
+                } else if (board[i][j] == board[i + 1][j] && board[i + 1][j] == board[i + 2][j]) {
+                    if (board[i][j] == "x"){
+                        alert("X win")
+                    }
+                    if (board[i][j] == "o") {
+                        alert("O win")
+                    }
+                } else if (board[i][j] == board[i + 1][j - 1] && board[i + 1][j - 1] == board[ i +2 ][j - 2]) {
+                    if (board[i][j] == "x"){
+                        alert("X win")
+                    }
+                    if (board[i][j] == "o") {
+                        alert("O win")
+                    }
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
