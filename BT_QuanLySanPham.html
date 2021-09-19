@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+</head>
+<style>
+    .button{
+        background-color: mediumseagreen;
+        color: aliceblue;
+    }
+    .title{
+        margin-left: 20%;
+        margin-right: 30%;
+        color: midnightblue;
+        font-family: Arial;
+        background-color: darkgrey;
+    }
+    .table{
+        text-align: center;
+        margin-left: 15%;
+        background-color: beige;
+
+    }
+    .cell{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+</style>
+<body>
+<div class="title">
+    <p ><span class="title">ADD NEW PRODUCTS</span></p>
+    <input type="text" id="add" class="table">
+    <button onclick="add()" class="button"> Add</button>
+    <p ><span class="title"> DISPLAY ALL PRODUCTS</span></p>
+    <table id="display" border="1" class="table">
+    </table>
+</div>
+<script>
+    let productsArr = ['Apple iPhone 6S', 'Apple iPhone 8', 'Apple iPhone X', 'Apple iPhone XR', 'Apple iPhone XSmax', 'Apple iPhone 11']
+    displayAllProducts()
+
+    function displayAllProducts() {
+        let display = '<tr> <td class="cell"> Product Name</td><td></td><td>' + productsArr.length + ' products</td></tr>'
+        for (let i = 0; i < productsArr.length; i++) {
+            display += '<tr><td class="cell">' + productsArr[i] + '</td>'
+                + '<td class="cell"><button onclick="edit('+ i+ ')" class="button">Edit</Button></td>'
+                + '<td class="cell"><button onclick="del('+i+')" class="button">Delete</Button></td>'
+                + '</tr>'
+        }
+        document.getElementById('display').innerHTML=display
+    }
+    function add(){
+        let add=document.getElementById('add').value
+        productsArr.push(add)
+        displayAllProducts()
+    }
+    function edit(id){
+        let newName=prompt('Input new name: ')
+        productsArr[id]=newName
+        displayAllProducts()
+    }
+    function del(id){
+        productsArr.splice(id,1)
+        displayAllProducts()
+    }
+
+</script>
+</body>
+</html>

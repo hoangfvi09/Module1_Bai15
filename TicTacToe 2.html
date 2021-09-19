@@ -50,16 +50,15 @@
     // kiem tra thang game
     function check() {
 
-
         for (let m = 0; m < 5; m++) {
             for (let n = 0; n < 5; n++) {
-                let rowWin = (board[m][n] === board[m][n + 1]) && (board[m][n] === board[m][n - 1])
+                let rowWin = (board[m][n] === board[m][n + 1]) && (board[m][n] === board[m][n +2])
                     && ((board[m][n] === "x") || (board[m][n] === "o"))
-                let colWin = (board[m][n] === board[m + 1][n]) && (board[m][n] === board[m - 1][n])
+                let colWin = (board[m][n] === board[m + 1][n]) && (board[m][n] === board[m +2][n])
                     && ((board[m][n] === "x") || (board[m][n] === "o"))
-                let downWin = (board[m][n] === board[m + 1][n + 1]) && (board[m - 1][n - 1] === board[m][n])
+                let downWin = (board[m][n] === board[m + 1][n + 1]) && (board[m +2][n +2] === board[m][n])
                     && ((board[m][n] === "x") || (board[m][n] === "o"))
-                let upWin = (board[m][n] === board[m - 1][n + 1]) && (board[m + 1][n - 1] === board[m][n])
+                let upWin = (board[m][n] === board[m + 1][n - 1]) && (board[m + 2][n -2 ] === board[m][n])
                     && ((board[m][n] === "x") || (board[m][n] === "o"))
                 let win = (rowWin || colWin) || (downWin || upWin)
                 if (win) {
